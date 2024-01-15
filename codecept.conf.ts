@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 import { setHeadlessWhen, setCommonPlugins } from '@codeceptjs/configure';
 // turn on headless mode when running with HEADLESS=true environment variable
 // export HEADLESS=true && npx codeceptjs run
@@ -23,10 +25,10 @@ export const config: CodeceptJS.MainConfig = {
     reportportal: {
       enabled: true,
       require: '@reportportal/agent-js-codecept',
-      token: 'YOUR_TOKEN',
+      token: process.env.TOKEN,
       endpoint: 'http://localhost:8080/api/v1',
       launchName: 'local launch',
-      projectName: 'Awesome_project'
+      projectName: 'default_personal'
     }
   }
 }
